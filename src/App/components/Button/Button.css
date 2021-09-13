@@ -9,15 +9,8 @@
     border:none;
     box-shadow: 15px 15px 20px grey;
 }
-.Button:hover{
-    background-color: rgb(172, 215, 233);
-}
-
-.Button.primary{
-    background-color: chartreuse;
-}
 .Button.primary:hover{
-    background-color: rgb(192, 255, 128);
+  
 }
 .Button img{
     max-height: 38px;

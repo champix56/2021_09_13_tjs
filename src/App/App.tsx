@@ -8,14 +8,14 @@ function App() {
     <div className="App">
      Demat breizh
      <hr/>
-     <Button classColor="primary" >
+     <Button bgColor="green">
        <img src="/img/ok.png" alt="ok"/>
      </Button>
-     <Button classColor="" >
+     <Button bgColor="tomato"  style={{textDecoration:'underline'}}  >
        <img src="/img/cancel.png" alt="cancel"/> 
        Cancel
      </Button>
-     <Button/>
+     <Button></Button>
     </div>
   );
 }
