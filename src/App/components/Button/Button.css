@@ -1,4 +1,4 @@
-.Button{
+.Button {
     padding: 5px 10px;
     margin: 5px 20px;
     border-radius: 8px;
@@ -6,17 +6,25 @@
     font-size: 20px;
     font-weight: 900;
     background-color: skyblue;
-    border:none;
+    border: none;
     box-shadow: 20px 20px 20px grey;
 }
-.Button:hover{
+
+.Button.clicked {
+    box-shadow: 5px 5px 20px grey;
+
+}
+
+.Button:hover {
     box-shadow: 15px 15px 20px grey;
 }
-.Button img{
+
+.Button img {
     max-height: 38px;
-    width:52px;
-    size:auto;
+    width: 52px;
+    size: auto;
 }
-.Button>*{
+
+.Button>* {
     vertical-align: middle;
 }

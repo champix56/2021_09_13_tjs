@@ -8,10 +8,19 @@ function App() {
     <div className="App">
      Demat breizh
      <hr/>
-     <Button bgColor="green">
+     <Button bgColor="green"
+      onClickEvent={(arg)=>{
+        console.trace(arg);
+      }}
+     >
        <img src="/img/ok.png" alt="ok"/>
      </Button>
-     <Button bgColor="tomato"  style={{textDecoration:'underline'}}  >
+     <Button bgColor="tomato"  
+     style={{textDecoration:'underline'}} 
+     onClickEvent={(arg)=>{
+       console.error('y\'a une erreur', arg)
+     }}
+     >
        <img src="/img/cancel.png" alt="cancel"/> 
        Cancel
      </Button>
