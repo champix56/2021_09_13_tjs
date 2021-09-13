@@ -7,10 +7,10 @@
     font-weight: 900;
     background-color: skyblue;
     border:none;
-    box-shadow: 15px 15px 20px grey;
+    box-shadow: 20px 20px 20px grey;
 }
-.Button.primary:hover{
-  
+.Button:hover{
+    box-shadow: 15px 15px 20px grey;
 }
 .Button img{
     max-height: 38px;
