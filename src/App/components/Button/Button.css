@@ -12,3 +12,11 @@
 .Button:hover{
     background-color: rgb(172, 215, 233);
 }
+.Button img{
+    max-height: 38px;
+    width:52px;
+    size:auto;
+}
+.Button>*{
+    vertical-align: middle;
+}
