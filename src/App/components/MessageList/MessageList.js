@@ -9,6 +9,7 @@ export const messageListInitialState = [
     text: 'Voici le message',
     dateTime: new Date().toString(),
     userId: 0,
+    destId:1,
     user: {
       id: 0,
       nick: 'champix',
@@ -20,6 +21,7 @@ export const messageListInitialState = [
     text: 'Voici le message2',
     dateTime: new Date().toString(),
     userId: 1,
+    destId:0,
     user: {
       id: 1,
       nick: 'pas champix',
@@ -34,7 +36,7 @@ const MessageList = (props) => {
   return (
     <div className={styles.MessageList} data-testid="MessageList">
      <h2><u>MessageList</u></h2>
-      <div style={{height:'100%', overflowY:'scroll'}}>
+      <div style={{height:'calc(100% - 70px)', overflowY:'scroll'}}>
         {
           messageListState.map((e, i) => <Message message={e} key={`mess-${i}`} />)
         }
