@@ -1,1 +1,6 @@
-.FlexContainer {}
+.FlexContainer {
+    display: flex;
+}
+.FlexContainer>*:first-child{
+    flex-grow: 1;
+}
