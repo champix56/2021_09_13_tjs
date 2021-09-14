@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SelectUser.module.scss';
 
-const SelectUser = () => (
-  <div className={styles.SelectUser} data-testid="SelectUser">
-    SelectUser Component
-  </div>
+const SelectUser = (props) => (
+  <select className={styles.SelectUser} data-testid="SelectUser" onChange={props.onChange}>
+    {props.users.map((e,i)=><option value={e.id}>{e.nick}</option>)}
+  </select>
 );
 
-SelectUser.propTypes = {};
+SelectUser.propTypes = {
+  users:PropTypes.array.isRequired,
+  onChange:PropTypes.func.isRequired,
+};
 
 SelectUser.defaultProps = {};
 
