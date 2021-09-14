@@ -7,7 +7,7 @@ const Message = (props) => (
      <img src={props.message.user.img}/>
      <div>
        <div className={styles.messageHeader}>
-         {props.message.user.nick} à {props.message.dateTime}
+         <b>{props.message.user.nick}</b> à {props.message.dateTime}
        </div>
        <div className={styles.message}>
          {props.message.text}
