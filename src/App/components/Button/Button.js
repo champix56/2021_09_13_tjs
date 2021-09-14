@@ -1,15 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import  './Button.css'
 import PropTypes from 'prop-types'
 
 const Button=(props)=>{
-    console.log(props);
+   const [clicked, setclicked] = useState(false)
     return (
-        <button className="Button" 
+        <button className={clicked?'Button clicked':'Button'} 
         type={props.type} 
         style={ {backgroundColor:props.bgColor,...props.style} }
         onClick={(evt)=>{
-            props.onClickEvent('bla bla');
+            setclicked(true);
+            setTimeout(()=>{setclicked(false)},250)
+            props.onClickEvent('bla bla');        
         }}
         >{props.children}</button>
     );

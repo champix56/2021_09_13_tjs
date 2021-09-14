@@ -10,14 +10,14 @@
     box-shadow: 20px 20px 20px grey;
 }
 
-.Button.clicked {
-    box-shadow: 5px 5px 20px grey;
-
-}
-
 .Button:hover {
     box-shadow: 15px 15px 20px grey;
 }
+.Button.clicked {
+    box-shadow: 5px 5px 20px grey !important;
+
+}
+
 
 .Button img {
     max-height: 38px;
