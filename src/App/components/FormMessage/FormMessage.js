@@ -7,8 +7,8 @@ import MessageInput from '../MessageInput/MessageInput'
 import Button from '../Button/Button';
 
 export const formMessageInitialState = {
-  text:'new text',
-  destId:0
+  text: 'new text',
+  destId: 0
 };
 
 const FormMessage = (props) => {
@@ -16,15 +16,18 @@ const FormMessage = (props) => {
 
   return (
     <div className={styles.FormMessage} data-testid="FormMessage">
-     {JSON.stringify(formMessageState)}
-      <form onSubmit={(evt)=>{
-          evt.preventDefault();
+      {JSON.stringify(formMessageState)}
+      <form onSubmit={(evt) => {
+        evt.preventDefault();
       }}>
-        <MessageInput value={formMessageState.text} onChange={(evt)=>{setFormMessageState({...formMessageState, text:evt.target.value})}}/>
-        <SelectUser value={formMessageState.destId} users={userListInitialState}
-        onChange={evt=>{
-          setFormMessageState({...formMessageState,destId:Number(evt.target.value)})
-        }}/>
+        <MessageInput value={formMessageState.text}
+          onChange={(evt) => { setFormMessageState({ ...formMessageState, text: evt.target.value }) }} />
+
+        <SelectUser users={userListInitialState}
+          value={formMessageState.destId}
+          onChange={evt => {
+            setFormMessageState({ ...formMessageState, destId: Number(evt.target.value) })
+          }} />
         <Button type="submit">Envoyer</Button>
       </form>
     </div>
