@@ -1,0 +1,24 @@
+.Message {
+    display: flex;
+    text-align: left;
+    border-top:1px solid rgba(128,128,128,0.3);
+    margin: 3px 0;
+    padding-top:3px
+}
+.Message>*:nth-child(2)
+{
+    flex-grow: 1;
+    padding-left: 10px;;
+}
+.Message img{
+    max-height: 48px;
+    width:48px;
+    size:auto;
+}
+.messageHeader{
+    color: grey;
+    font-size: 10pt;
+}
+.message{
+    vertical-align: middle;
+}
