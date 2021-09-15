@@ -1,8 +1,9 @@
-import { createStore } from 'redux'
+import { combineReducers, createStore } from 'redux'
 //etat initial pour reprise par les composants pour calque des etats initiaux locaux 
 export const initialState = { messages: [], users: [], lastMessageId: -1 };
 //actions public diffusables
 export const ACTIONS = Object.freeze({
+    SAVE_MESSAGE: 'SAVE_MESSAGE',
     SET_MESSAGES: 'SET_MESSAGES',
     SET_USERS: 'SET_USERS'
 });
@@ -15,7 +16,7 @@ function reducers(state = initialState, action) {
     console.error(action.type);
     switch (action.type) {
         case PRIVATE_ACTIONS.INIT:
-
+setTimeout(()=>{
             setInterval(() => {
                 fetch('http://localhost:5679/users', { method: 'GET' })
                     .then(flux => flux.json())
@@ -23,13 +24,13 @@ function reducers(state = initialState, action) {
                         store.dispatch({ type: ACTIONS.SET_USERS, values: arr })
                         return arr;
                     })
-            }, 1000)
+            }, 1000)},2000)
 
             setInterval(() => {
-                fetch('http://localhost:5679/messages?id_gte=' + (store.getState().lastMessageId + 1), { method: 'GET' })
+                fetch('http://localhost:5679/messages?id_gte=' + (store.getState().tchat.lastMessageId + 1), { method: 'GET' })
                     .then(flux => flux.json())
                     .then(arr => {
-                        let lastId = store.getState().lastMessageId;
+                        let lastId = store.getState().tchat.lastMessageId;
                         arr.map(element => {
                             if (lastId < element.id) lastId = element.id
                             return null;
@@ -54,32 +55,38 @@ function reducers(state = initialState, action) {
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body:JSON.stringify(action.value)
+                    body: JSON.stringify(action.value)
                 })
-            return  state;
+            return state;
         default: return state;
     }
 }
+/**
+ * etat initial pour la modal
+ */
+const modalInitialState = {
+    isShown: false,
+    content: null
+}
 
-// let state=reducers(undefined,{type:PRIVATE_ACTIONS.INIT});
-// console.log(state);
+const modalReducer = (state = modalInitialState, action) => {
+    console.error(action.type);
 
+    switch (action.type) {
 
-// state=reducers(state,{type:ACTIONS.SET_MESSAGES,values:[{id:0},{id:1}]});
-// console.log(state);
+        case 'SHOW': return { ...state, isShown: true, content: action.value }
+        case 'HIDE': return { ...state, isShown: false, content: null }
+        default:
+            return state
+    }
+}
 
-
-// state=reducers(state,{type:ACTIONS.SET_MESSAGES,values:[{id:2},{id:3}]});
-// console.log(state);
-
-const store = createStore(reducers);
+const store = createStore( combineReducers({tchat: reducers, modal:modalReducer}));
 
 store.subscribe(() => {
     console.warn(store.getState())
 })
 
 store.dispatch({ type: PRIVATE_ACTIONS.INIT });
-// store.dispatch({ type: ACTIONS.SET_MESSAGES, values: [{ id: 0 }, { id: 1 }] });
-// store.dispatch({ type: ACTIONS.SET_USERS, values: [{ id: 2 }, { id: 3 }] });
 
 export default store;

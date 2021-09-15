@@ -1,0 +1,31 @@
+.Auth {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: tomato;
+}
+
+.authContainer img {
+    width: 256px;
+    max-height: 400px;
+    size: auto;
+}
+
+.authContainer select {
+    min-width: 200px;
+    height: 80px;
+    font-size: 40px;
+}
+
+.authContainer {
+    position: absolute;
+    top: 25vh;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px 10px;
+    margin-left: 20vw;
+    width: 60vw;
+    box-shadow: 20px 20px 35px rgba(0, 0, 0, 0.3);
+}
