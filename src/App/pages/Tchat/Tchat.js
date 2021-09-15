@@ -6,16 +6,16 @@ import MessageList from '../../components/MessageList/MessageList';
 import UserList from '../../components/UserList/UserList';
 import FormMessage from '../../components/FormMessage/FormMessage';
 
-const Tchat = () => (
+const Tchat = (props) => (
   <div className={styles.Tchat} data-testid="Tchat">
     <FlexContainer type="horizontal" style={{height:'98vh'}}>
           {/* partie superieur */}
           <FlexContainer type="vertical">
             <MessageList/>
-            <UserList/>
+            <UserList users={props.users}/>
           </FlexContainer>
           {/* partie inferieur */}
-          <FormMessage/>
+          <FormMessage  users={props.users}/>
         </FlexContainer>
   </div>
 );

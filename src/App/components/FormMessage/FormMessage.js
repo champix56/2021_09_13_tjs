@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './FormMessage.module.scss';
 import SelectUser from '../SelectUser/SelectUser';
-import { userListInitialState } from '../UserList/UserList';
+// import { userListInitialState } from '../UserList/UserList';
 import MessageInput from '../MessageInput/MessageInput'
 import Button from '../Button/Button';
 
@@ -23,7 +23,7 @@ const FormMessage = (props) => {
         <MessageInput value={formMessageState.text}
           onChange={(evt) => { setFormMessageState({ ...formMessageState, text: evt.target.value }) }} />
 
-        <SelectUser users={userListInitialState}
+        <SelectUser users={props.users}
           value={formMessageState.destId}
           onChange={evt => {
             setFormMessageState({ ...formMessageState, destId: Number(evt.target.value) })
